@@ -9,11 +9,14 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
     AnimationDrawable imageAnimation;
     ImageView imageView;
+    ImageView image;
     boolean draw=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imageView= findViewById(R.id.img);
+        image=findViewById(R.id.imageView);
+        final Animation zoomAnimation = AnimationUtils.loadAnimation(this, R.anim.zoom);
+
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                image.startAnimation(zoomAnimation);
+            }
+        });
+
+
 
 
 
