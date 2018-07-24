@@ -11,14 +11,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity {
     AnimationDrawable imageAnimation;
     ImageView imageView;
     boolean draw=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         imageView= findViewById(R.id.img);
 
@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.menu_to_back));
+                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.back_to_menu));
                 Drawable drawable=imageView.getDrawable();
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).start();
                 }
-                Intent intent= new Intent(MainActivity.this,Main2Activity.class);
+                Intent intent= new Intent(Main2Activity.this,MainActivity.class);
                 ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(MainActivity.this,
+                        makeSceneTransitionAnimation(Main2Activity.this,
                                 imageView,
                                 ViewCompat.getTransitionName(imageView));
                 startActivity(intent, options.toBundle());
