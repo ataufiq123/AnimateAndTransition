@@ -5,6 +5,7 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,10 +34,10 @@ public class Main2Activity extends AppCompatActivity {
                     ((Animatable) drawable).start();
                 }
                 Intent intent= new Intent(Main2Activity.this,MainActivity.class);
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(Main2Activity.this,
-                                imageView,
-                                ViewCompat.getTransitionName(imageView));
+                Pair<View, String> pair1= Pair.create(findViewById(R.id.img),"simple_activity_transition");
+                Pair<View, String> pair2= Pair.create(findViewById(R.id.btn),"button");
+                Pair<View, String> pair3= Pair.create(findViewById(R.id.img_zoom),"zoom");
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(Main2Activity.this,pair1,pair2,pair3);
                 startActivity(intent, options.toBundle());
                 draw=!draw;
 
